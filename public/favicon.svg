@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="M2W Viz">
+  <rect width="64" height="64" rx="14" fill="#0A0A0A"/>
+  <g fill="none" stroke="#8452FF" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="27" cy="27" r="13.5"/>
+    <ellipse cx="27" cy="27" rx="5.6" ry="13.5"/>
+    <path d="M13.5 27h27"/>
+    <path d="M16.2 20.2h21.6"/>
+    <path d="M16.2 33.8h21.6"/>
+  </g>
+  <path fill="#8452FF" d="M37.2 16.2 47.6 12.4l1.7 9.4-8.2-.7z"/>
+  <path fill="#0A0A0A" d="M44.6 16.4l2.1-.8.9 2.2-2.1.7z"/>
+  <path fill="#8452FF" d="M13.5 43.6c6.2-2.4 12.2-2.4 13.5.2 1.3-2.6 7.3-2.6 13.5-.2v5.6c-6-2.2-11.8-2.2-13.5.6-1.7-2.8-7.5-2.8-13.5-.6z"/>
+  <rect x="40.2" y="39.2" width="4.4" height="12.4" rx="1.1" fill="#6B3AD1"/>
+  <rect x="45.6" y="32.4" width="4.4" height="19.2" rx="1.1" fill="#8452FF"/>
+  <rect x="51" y="23.6" width="4.4" height="28" rx="1.1" fill="#B39BFF"/>
+</svg>
