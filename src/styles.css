@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/* Self-hosted so the decks render in their real typefaces offline — without
+   these the display/mono stacks silently fell back to the system UI font.
+   Inter + DM Serif Display are the m2w.ai marketing faces. */
+@import '@fontsource-variable/inter';
+@import '@fontsource/dm-serif-display/400.css';
+@import '@fontsource/dm-serif-display/400-italic.css';
+@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/jetbrains-mono';
+
+@theme {
+  --color-ink-50: #f5f5f4;
+  --color-ink-900: #0a0a0a;
+  --color-ink-950: #050505;
+
+  --font-display: 'Space Grotesk Variable', 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Variable', Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-editorial: 'DM Serif Display', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-display);
+  background:
+    radial-gradient(1200px 600px at 12% -10%, rgba(244, 63, 94, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 90% 110%, rgba(56, 189, 248, 0.1), transparent 60%), #050505;
+}
+
+/* Subtle grid texture */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Flow animation for sankey ribbons */
+@keyframes flow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+.flow-anim {
+  stroke-dasharray: 6 10;
+  animation: flow 4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-anim {
+    animation: none;
+  }
+}
+
+/* Pulse for active node */
+@keyframes node-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(244, 63, 94, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.55));
+  }
+}
+.node-pulse {
+  animation: node-pulse 2.4s ease-in-out infinite;
+}
+
+/* Print/PDF export styles */
+@media print {
+  body {
+    background: #050505 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+}
