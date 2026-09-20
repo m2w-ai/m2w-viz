@@ -176,3 +176,18 @@ chart libraries) · Bun for install and tests.
 
 Static SPA. `vercel.json` rewrites every path to `index.html` so deep links to
 decks resolve.
+
+Deployed as the `m2w-viz-framework` Vercel project (team `m2w`):
+<https://m2w-viz-framework.vercel.app>. It is deliberately separate from the
+`m2w-viz` project, which serves the internal version from the mono repo — do
+not link this repository to that one. The project is not git-connected, so
+deploy by hand:
+
+```bash
+vercel link --project m2w-viz-framework --scope m2w-ai
+vercel deploy          # preview (behind Vercel SSO)
+vercel deploy --prod   # production
+```
+
+Build settings are auto-detected (`bun install`, `bun run build`, output
+`dist`). `.vercel/` is local link state and stays out of git.
